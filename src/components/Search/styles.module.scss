@@ -1,0 +1,13 @@
+.container {
+  //@apply flex items-center gap-[var(--spacing-2-5)] pt-[var(--spacing-2)] pr-[var(--spacing-4)] pb-[var(--spacing-2)] pl-[var(--spacing-4)] relative rounded-[8px] border border-solid border-gray-300 w-full;
+  @apply w-full;
+}
+.inputContainer {
+  @apply flex items-center gap-[var(--spacing-2-5)] relative flex-1 grow w-full
+}
+.icon {
+  @apply absolute top-2 left-4;
+}
+.input {
+  @apply  border border-solid border-gray-300 rounded-[8px] w-full pl-11 py-2 pb-2 text-sm focus:outline-none pr-2
+}
