@@ -1,15 +1,21 @@
-import React from "react";
+import {ReactElement} from "react";
 
-import Container from "../Container";
-import DocumentSelectorTitle from "../DocumentSelectorTitle";
 import Search from "../Search";
+import Container from "../Container";
+import FiltersContainer from "../FiltersContainer";
+import DocumentSelectorTitle from "../DocumentSelectorTitle";
+import Documents from "../Documents";
 
 
-const AvailableDocuments = (): React.ReactElement => {
+const AvailableDocuments = (): ReactElement => {
     return (
         <Container>
             <DocumentSelectorTitle title="Available Documents"/>
-            <Search/>
+            <div className="mt-3 w-full">
+                <Search/>
+            </div>
+            <FiltersContainer />
+            <Documents />
         </Container>
     );
 }
