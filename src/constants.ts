@@ -1,7 +1,8 @@
 export interface Option {
     label: string;
-    value: string;
+    value: string | number;
 }
+
 export const MOCK_JOB_TEMPLATES_OPTIONS: Array<Option> = [
     {
         label: "Heavy Equipment Operator",
@@ -59,7 +60,7 @@ export const MOCK_JOB_TEMPLATES_OPTIONS: Array<Option> = [
         label: "Off Road Truck Driver",
         value: "off_road_truck_driver",
     },
-];
+]
 export const MOCK_LOCATION_OPTIONS: Array<Option> = [
     {
         label: "New York, NY",
@@ -116,9 +117,84 @@ export const MOCK_SUBSIDIARY_OPTIONS: Array<Option> = [
         value: "leadership_management",
     },
 ]
+
 export const MOCK_SENIORITY_OPTIONS: Array<Option> = [
     {
         label: "seniority",
         value: "seniority",
     },
 ]
+
+export interface AccordionOptions {
+    title: string;
+    options: Array<Option>;
+}
+
+
+export const ACCORDION_NON_COMPETE_AGREEMENTS_OPTIONS: AccordionOptions = {
+    title: "Non-Compete Agreements",
+    options: [
+        {
+            label: "Alabama - Non-Compete Agreement",
+            value: 0,
+        },
+        {
+            label: "California - Non-Compete Agreement",
+            value: 1,
+        },
+        {
+            label: "Colorado - Non-Compete Agreement",
+            value: 2,
+        },
+        {
+            label: "Florida - Non-Compete Agreement",
+            value: 3,
+        },
+        {
+            label: "Illinois - Non-Compete Agreement",
+            value: 4,
+        },
+        {
+            label: "Kansas - Non-Compete Agreement",
+            value: 5,
+        },
+        {
+            label: "New York - Non-Compete Agreement",
+            value: 6,
+        },
+        {
+            label: "Utah - Non-Compete Agreement",
+            value: 7,
+        },
+    ]
+}
+
+export const ACCORDION_DRRUG_POLICIES_OPTIOS: AccordionOptions = {
+    title: "Drug Policies",
+    options: ACCORDION_NON_COMPETE_AGREEMENTS_OPTIONS.options,
+}
+export const ACCORDION_EMPLOYEE_HANDBOOKS_OPTIOS: AccordionOptions = {
+    title: "Employee Handbooks",
+    options: ACCORDION_NON_COMPETE_AGREEMENTS_OPTIONS.options,
+}
+export const ACCORDION_EQUIPMENT_SECTION_OPTIOS: AccordionOptions = {
+    title: "Equipment Selection",
+    options: ACCORDION_NON_COMPETE_AGREEMENTS_OPTIONS.options,
+}
+
+export const ACCORDION_PAYROLL_HANDBOOK_OPTIONS: AccordionOptions = {
+    title: "Payroll Handbook",
+    options: ACCORDION_NON_COMPETE_AGREEMENTS_OPTIONS.options,
+}
+export const ACCORDION_PTO_POLICY_OPTIONS: AccordionOptions = {
+    title: "PTO Policy",
+    options: ACCORDION_NON_COMPETE_AGREEMENTS_OPTIONS.options,
+}
+export const ACCORDION_SAFETY_MANUALS_OPTIONS: AccordionOptions = {
+    title: "Safety Manuals",
+    options: ACCORDION_NON_COMPETE_AGREEMENTS_OPTIONS.options,
+}
+export const ACCORDION_SEXUAL_HARASSMENT_OPTIONS = {
+    title: "Sexual Harassment",
+    options: ACCORDION_NON_COMPETE_AGREEMENTS_OPTIONS.options,
+}

@@ -1,0 +1,15 @@
+.container {
+  @apply rounded-lg border border-solid border-orange-500 w-full overflow-auto
+}
+.buttonContainer {
+  @apply border-b-[2px] py-4 px-5 leading-6 transition-all hover:bg-gray-100 cursor-pointer
+}
+.button {
+  @apply w-full flex text-gray-600 text-base items-center justify-between
+}
+.buttonText {
+  @apply leading-[22px]
+}
+.label {
+  @apply text-gray-900 text-sm font-medium leading-[14px] items-center flex
+}
