@@ -15,6 +15,7 @@ const FiltersContainer: FC = () => {
     const [selectedOptions, setSelectedOptions] = useState<Array<Option>>([]);
 
     const handleAddSelectedOption = (option: Option) => setSelectedOptions([...selectedOptions, option])
+    const handleRemoveSelectedOption = (option: Option) => setSelectedOptions(selectedOptions.filter(item => item.value !== option.value))
 
     return (
         <div className="pt-1 w-full">
@@ -52,7 +53,7 @@ const FiltersContainer: FC = () => {
 
             {!!selectedOptions.length && (
                 <div className="mt-3">
-                    <FilterSelectedOptions selectedOptions={selectedOptions}/>
+                    <FilterSelectedOptions selectedOptions={selectedOptions} handleRemoveSelectedOption={handleRemoveSelectedOption}/>
                 </div>
             )}
         </div>

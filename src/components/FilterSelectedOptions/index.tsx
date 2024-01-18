@@ -7,9 +7,10 @@ import {Option} from "../../constants";
 
 interface Props {
     selectedOptions: Array<Option>
+    handleRemoveSelectedOption: (option: Option) => void
 }
 
-const FilterSelectedOptions: React.FC<Props> = ({selectedOptions}) => (
+const FilterSelectedOptions: React.FC<Props> = ({selectedOptions, handleRemoveSelectedOption}) => (
     <div className={s.container}>
         {selectedOptions.map((option) => (
             <div
@@ -22,7 +23,9 @@ const FilterSelectedOptions: React.FC<Props> = ({selectedOptions}) => (
             >
                 <span>{option.label}</span>
                 <button className='ml-1'>
-                    <RemoveIcon className={cx({
+                    <RemoveIcon
+                        onClick={() => handleRemoveSelectedOption(option)}
+                        className={cx({
                         'fill-blue-500': option.type_id === 'location' || option.type_id === 'subsidiary',
                         'fill-green-500': option.type_id === 'seniority',
                         'fill-purple-500': option.type_id === 'job',

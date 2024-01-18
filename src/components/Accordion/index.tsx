@@ -21,6 +21,7 @@ const Accordion: React.FC<Props> = ({data}) => {
             <div className="w-full">
                 {data.map((options, i) => (
                     <AccordionSection
+                        key={i + 1}
                         handleOpen={handleOpen}
                         activeIndex={activeIndex}
                         index={i + 1}
