@@ -10,7 +10,7 @@
 }
 
 .item {
-  @apply font-medium text-[#111928] text-[14px] py-2 leading-[14px]
+  @apply font-medium text-[#111928] text-[14px] py-2 leading-[14px] hover:cursor-pointer
 }
 
 .searchContainer {

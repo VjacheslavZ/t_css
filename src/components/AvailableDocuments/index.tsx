@@ -36,7 +36,7 @@ const AvailableDocuments = (): ReactElement => {
             <div className="mt-3 w-full">
                 <Search/>
             </div>
-            <FiltersContainer/>
+            <FiltersContainer />
             <Documents/>
             <div className="mt-5 w-full">
                 <Accordion data={accordionData}/>

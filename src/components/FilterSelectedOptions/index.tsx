@@ -1,35 +1,36 @@
 import React from "react";
+import cx from 'classnames';
+import s from "./styles.module.scss";
+
 import {ReactComponent as RemoveIcon} from "../../assets/icons/icon_close.svg";
+import {Option} from "../../constants";
 
+interface Props {
+    selectedOptions: Array<Option>
+}
 
-const FilterSelectedOptions: React.FC = () => {
-    return (
-        <div className="px-2 pb-2 border border-solid border-gray-200 rounded-lg w-full flex flex-wrap">
+const FilterSelectedOptions: React.FC<Props> = ({selectedOptions}) => (
+    <div className={s.container}>
+        {selectedOptions.map((option) => (
             <div
-                className='w-fit py-0.5 px-3 bg-blue-100 text-sm text-blue-500 flex justify-center align-baseline tracking-normal rounded-md mr-2 mt-2 font-medium'>
-                <span>New York, NY</span>
-                <button className='ml-1'><RemoveIcon className="fill-blue-500"/></button>
+                key={option.value}
+                className={cx(s.item, {
+                    'bg-blue-100 text-blue-500': option.type_id === 'location' || option.type_id === 'subsidiary',
+                    'bg-green-100 text-green-500': option.type_id === 'seniority',
+                    'bg-purple-100 text-purple-500': option.type_id === 'job',
+                })}
+            >
+                <span>{option.label}</span>
+                <button className='ml-1'>
+                    <RemoveIcon className={cx({
+                        'fill-blue-500': option.type_id === 'location' || option.type_id === 'subsidiary',
+                        'fill-green-500': option.type_id === 'seniority',
+                        'fill-purple-500': option.type_id === 'job',
+                    })}/>
+                </button>
             </div>
-
-            <div
-                className='w-fit py-0.5 px-3 bg-blue-100 text-sm text-blue-500 flex justify-center align-baseline tracking-normal rounded-md mr-2 mt-2 font-medium'>
-                <span>Cobb, CA</span>
-                <button className='ml-2'><RemoveIcon className="fill-blue-500"/></button>
-            </div>
-
-            <div
-                className='w-fit py-0.5 px-3 bg-purple-100 text-sm text-purple-500 flex justify-center align-baseline tracking-normal rounded-md mr-2 mt-2 font-medium'>
-                <span>Electricians</span>
-                <button className='ml-2'><RemoveIcon className="fill-purple-500"/></button>
-            </div>
-
-            <div
-                className='w-fit py-0.5 px-3 bg-green-100 text-sm text-green-500 flex justify-center align-baseline tracking-normal rounded-md mr-2 mt-2 font-medium'>
-                <span>Manager</span>
-                <button className='ml-2'><RemoveIcon className="fill-green-500"/></button>
-            </div>
-        </div>
-    )
-};
+        ))}
+    </div>
+)
 
 export default FilterSelectedOptions;
