@@ -8,6 +8,7 @@ import {
     MOCK_SUBSIDIARY_OPTIONS,
     MOCK_SENIORITY_OPTIONS
 } from "../../constants";
+import FilterSelectedOptions from "../FilterSelectedOptions";
 
 const FiltersContainer = (): ReactElement => {
     return (
@@ -22,6 +23,10 @@ const FiltersContainer = (): ReactElement => {
             <div className="w-full flex justify-between relative mt-1">
                 <Select name="Subsidiary" options={MOCK_SUBSIDIARY_OPTIONS}/>
                 <Select name="Seniority" options={MOCK_SENIORITY_OPTIONS}/>
+            </div>
+
+            <div className="mt-3">
+                <FilterSelectedOptions />
             </div>
         </div>
     );

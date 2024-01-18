@@ -8,7 +8,9 @@ const SelectedDocuments = (): ReactElement => {
     return (
         <Container>
             <DocumentSelectorTitle title="Selected Documents"/>
-            <Search/>
+            <div className="mt-3 w-full">
+                <Search/>
+            </div>
         </Container>
     );
 }

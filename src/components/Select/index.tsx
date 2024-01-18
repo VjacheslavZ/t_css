@@ -31,7 +31,6 @@ const Select: FC<Props> = ({name, options}) => {
                     </ul>
                 </div>
             </div>
-
         </div>
     );
 }
