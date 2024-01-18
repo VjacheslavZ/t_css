@@ -6,6 +6,7 @@ import {ReactComponent as ChevronDown} from "../../assets/icons/chevron-down.svg
 import {ReactComponent as DropDownOption} from "../../assets/icons/dropdown_option.svg";
 
 import s from "./styles.module.scss";
+ import {useSelectedDocumentsContext} from "../../context/selectedDocumentsContext";
 
 interface Props {
     data: AccordionOptions
@@ -16,6 +17,7 @@ interface Props {
 
 export const AccordionSection: React.FC<Props> = ({data, handleOpen, activeIndex, index}) => {
     const isOpen = activeIndex === index;
+    const {handleSelectOption} = useSelectedDocumentsContext();
     return (
         <div>
             <div
@@ -30,10 +32,16 @@ export const AccordionSection: React.FC<Props> = ({data, handleOpen, activeIndex
 
             <ul className={`overflow-hidden h-0 ${isOpen && 'h-full p-2'}`}>
                 {data.options.map(({value, label}, index) => (
-                    <li key={value} className={`flex px-1.5 py-2 align-baseline justify-between ${index && 'mt-2.5'}`}>
+                    <li
+                        key={value}
+                        className={`flex px-1.5 py-2 align-baseline justify-between ${index && 'mt-2.5'}`}
+                    >
                         <span
                             className={s.label}>{label}</span>
-                        <DropDownOption/>
+                        <DropDownOption
+                            onClick={() => handleSelectOption({ value, label })}
+                            className="hover:cursor-pointer"
+                        />
                     </li>
                 ))}
             </ul>
